@@ -1,9 +1,9 @@
 language: java
 sudo: false # faster builds
+before_install: cd project
 install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-before_script: cd project
+
 script: 
-- cd Lab2
 - mvn cobertura:cobertura
 
 after_success:
