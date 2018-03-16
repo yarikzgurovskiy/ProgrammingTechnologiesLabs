@@ -43,8 +43,8 @@
       <file leaf-file-name="MatrixTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/lab1/MatrixTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+            <state relative-caret-position="144">
+              <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -433,7 +433,7 @@
       <workItem from="1520789017389" duration="24000" />
       <workItem from="1520883760444" duration="156000" />
       <workItem from="1520888306141" duration="19000" />
-      <workItem from="1521226854913" duration="434000" />
+      <workItem from="1521226854913" duration="635000" />
     </task>
     <task id="LOCAL-00001" summary="update pom">
       <created>1521226956722</created>
@@ -449,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521229356751</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add new Test">
+      <created>1521229599353</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1521229599353</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -485,10 +492,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40177000" />
+    <option name="totallyTimeSpent" value="40378000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -531,7 +538,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update pom" />
     <MESSAGE value="delete Main Lab1" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete Main Lab1" />
+    <MESSAGE value="add new Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add new Test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -899,8 +907,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/lab1/MatrixTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+        <state relative-caret-position="144">
+          <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

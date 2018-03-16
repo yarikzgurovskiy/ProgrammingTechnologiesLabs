@@ -75,7 +75,7 @@ class MatrixTest {
         assertEquals(m1, m2);
         assertNotEquals(m1, m3);
         assertNotEquals(m1, m4);
-        assertNotEquals(m1, null);
+        assertFalse(m1.equals(null));
         assertEquals(m1, m1);
     }
 
