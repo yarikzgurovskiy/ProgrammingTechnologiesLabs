@@ -1,6 +1,6 @@
 language: java
 sudo: false # faster builds
-before_install: cd Lab2
+before_install: cd Lab1
 install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 script: 
