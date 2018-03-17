@@ -30,7 +30,8 @@ public class SwitchFSM extends FSM {
                     default: return States.ERROR;
                 }
             }
+            default:
+                return States.ERROR;
         }
-        return States.ERROR;
     }
 }
