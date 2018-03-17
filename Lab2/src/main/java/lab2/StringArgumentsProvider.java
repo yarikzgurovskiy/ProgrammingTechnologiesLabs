@@ -12,7 +12,9 @@ class StringArgumentsProvider implements ArgumentsProvider {
                 Arguments.of(null, false),
                 Arguments.of("+56565656", true),
                 Arguments.of("+", false),
-                Arguments.of("+D", false)
+                Arguments.of("+D", false),
+                Arguments.of("+3333", true),
+                Arguments.of("+34D", true)
         );
     }
 }
