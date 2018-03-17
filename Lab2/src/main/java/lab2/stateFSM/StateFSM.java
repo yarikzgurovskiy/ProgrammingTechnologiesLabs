@@ -18,17 +18,10 @@ public class StateFSM {
         currentState = new Q0();
         char[] symbols = input.toCharArray();
         for (char ch : symbols) {
-            Events event = recognizeEvent(ch);
+            Events event = Events.recognizeEvent(ch);
             currentState.changeState(this, event);
             if(currentState instanceof Error) return false;
         }
         return currentState instanceof Q2 || currentState instanceof Q3;
-    }
-    private Events recognizeEvent(char symbol){
-        Events event = Events.ANY;
-        if(symbol == '+') event = Events.PLUS;
-        else if(symbol >= '0' && symbol <= '9') event = Events.DIGIT;
-        else if(symbol >= 'A' && symbol <= 'Z') event = Events.CAPSLETTER;
-        return event;
     }
 }
