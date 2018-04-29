@@ -1,0 +1,37 @@
+
+(expressions.story)
+Narrative:
+As a user
+I want to perform an action
+So that I can achieve a business goal
+Scenario: scenario description
+Given evaluator
+When evaluate A = [[1,2,4], [4, 5, 6]]
+Then should equal [[1.00, 2.00, 4.00], [4.00, 5.00, 6.00]]
+
+Scenario: Error scenario with matrix division
+Given evaluator
+When evaluate [[5]] / [[4]]
+Then should equal One operand should be matrix, another should be a number
+
+Scenario: Get A from cache
+Given evaluator
+When evaluate A^T
+Then should equal [[1.00, 4.00], [2.00, 5.00], [4.00, 6.00]]
+
+Scenario: Input Matrix in invalid format
+Given evaluator
+When evaluate B = [[2.44, 3.444, ], [6.45, 2.5]]
+Then should equal null
+
+Scenario: Input Matrix jagged
+Given evaluator
+When evaluate B = [[2.44, 3.444, 4.6], [6.45, 2.5]]
+Then should equal All rows must have the same length.
+
+Scenrio: (FAILED)
+(org.junit.ComparisonFailure: expected:<...ave the same length.[
+
+Scenrio:]> but was:<...ave the same length.[]>)
+
+

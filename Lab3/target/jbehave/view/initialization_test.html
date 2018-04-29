@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>initialization_test</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+<div class="story">
+<h1></h1>
+<div class="path">initialization_test.story</div>
+<div class="scenario">
+<h2>Scenario: Save matrix</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">A = [[1,2,4], [4, 5, 6]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[1.00, 2.00, 4.00], [4.00, 5.00, 6.00]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Input matrix in invalid format</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">[[2,44, 3,444, ], [6,45, 2,5]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Syntax error occurred</span></div>
+<div class="step successful">When evaluate <span class="step parameter">[[4]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Syntax error occurred</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Input matrix with invalid name</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">2 = [[5,8]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Syntax error occurred</span></div>
+<div class="step successful">When evaluate  <span class="step parameter">_ = [[5,8]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Syntax error occurred</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Error with matrix division</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">[[5]] / [[4]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">One operand should be matrix, another should be a number</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Error input of jagged Matrix</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">B = [[2,44, 3,444, 4,6], [6,45, 2,5]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">All rows must have the same length.</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Get matrix that exists in the cache</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">A = [[1,2,3],[1,2,3],[1,2,3]]</span></div>
+<div class="step successful">And evaluate <span class="step parameter">A</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[1.00, 2.00, 3.00], [1.00, 2.00, 3.00], [1.00, 2.00, 3.00]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Unexisting name of Matrix</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">Z</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Variable is not defined</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Save calculation of matrix</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">B = [[3, 5], [3, 7]]</span></div>
+<div class="step successful">And evaluate <span class="step parameter">B = B^T</span></div>
+<div class="step successful">And evaluate <span class="step parameter">B</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[3.00, 3.00], [5.00, 7.00]]</span></div>
+</div>
+</div>
+
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>

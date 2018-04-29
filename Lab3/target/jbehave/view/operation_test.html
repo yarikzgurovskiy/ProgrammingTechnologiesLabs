@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>operation_test</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+<div class="story">
+<h1></h1>
+<div class="path">operation_test.story</div>
+<div class="scenario">
+<h2>Scenario: Expression without saving</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">[[1,2,3],[1,2,3],[1,2,3]]^T</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[1.00, 1.00, 1.00], [2.00, 2.00, 2.00], [3.00, 3.00, 3.00]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Divide on rank</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">A = [[1,2,3],[1,2,3],[1,2,3]]</span></div>
+<div class="step successful">When evaluate <span class="step parameter">C = A / rankA</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[1.00, 2.00, 3.00], [1.00, 2.00, 3.00], [1.00, 2.00, 3.00]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Expression contains matrices in the invalid string format</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">[[7,-5,[-4,3]]^T / 3</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Syntax error occurred</span></div>
+<div class="step successful">When evaluate <span class="step parameter">[[7,-5],[-4,3]]^T / rank([[1,2],[3,4)</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Syntax error occurred</span></div>
+<div class="step successful">When evaluate <span class="step parameter">5^T</span></div>
+<div class="step successful">Then should equal <span class="step parameter">TRANSPOSE OF NON MATRIX</span></div>
+<div class="step successful">When evaluate <span class="step parameter">rank(5)</span></div>
+<div class="step successful">Then should equal <span class="step parameter">RANK OF NON MATRIX</span></div>
+<div class="step successful">When evaluate <span class="step parameter">[[4]] / [[4, 4]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">One operand should be matrix, another should be a number</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Expression contains matrix in string format; the expression is calculated without saving the result</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">[[1,2, 3],[1,2, 3], [1,2, 3]]^T / rank[[1.4, 2.8, 3.6],[1, 2, 3]]</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[0.50, 0.50, 0.50], [1.00, 1.00, 1.00], [1.50, 1.50, 1.50]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Expression contains matrix in string format; the expression is computed and the result is stored in the repository</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">A = [[1,2, 3],[1,2, 3], [1,2, 3]]^T / rank[[1.4, 2.8, 3.6],[1, 2, 3]]</span></div>
+<div class="step successful">And evaluate <span class="step parameter">A</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[0.50, 0.50, 0.50], [1.00, 1.00, 1.00], [1.50, 1.50, 1.50]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Expression get matrix from the repository; the expression is calculated without saving the result</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">A = [[1,2, 3],[1,2, 3], [1,2, 3]]^T</span></div>
+<div class="step successful">And evaluate <span class="step parameter">r = rank[[1.4, 2.8, 3.6],[1, 2, 3]]</span></div>
+<div class="step successful">And evaluate <span class="step parameter">A / r</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[0.50, 0.50, 0.50], [1.00, 1.00, 1.00], [1.50, 1.50, 1.50]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Expression get matrix from the repository; the expression is calculated and the result is stored in the repository</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">A = [[1,2, 3],[1,2, 3], [1,2, 3]]^T</span></div>
+<div class="step successful">And evaluate <span class="step parameter">r = rank[[1.4, 2.8, 3.6],[1, 2, 3]]</span></div>
+<div class="step successful">And evaluate <span class="step parameter">R = A / r</span></div>
+<div class="step successful">And evaluate <span class="step parameter">R</span></div>
+<div class="step successful">Then should equal <span class="step parameter">[[0.50, 0.50, 0.50], [1.00, 1.00, 1.00], [1.50, 1.50, 1.50]]</span></div>
+</div>
+<div class="scenario">
+<h2>Scenario: Expression trying to get matrix that is not in the cache</h2>
+<div class="step successful">Given evaluator</div>
+<div class="step successful">When evaluate <span class="step parameter">W^T / rank(X)</span></div>
+<div class="step successful">Then should equal <span class="step parameter">Variable is not defined</span></div>
+</div>
+</div>
+
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>

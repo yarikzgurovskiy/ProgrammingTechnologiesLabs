@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>definition</title>
+<style type="text/css" media="all">
+@import url( "./style/jbehave-core.css" );
+</style>
+</head>
+<body>
+ 
+<script type="syntaxhighlighter" class="brush: txt"><![CDATA[
+
+(definition.story)
+Narrative:
+As a user
+I want to perform an action
+So that I can achieve a business goal
+Scenario: scenario description
+Given evaluator
+When evaluate A = [[1,2,4], [4, 5, 6]]
+Then should equal [[1.00, 2.00, 4.00], [4.00, 5.00, 6.00]]
+
+Scenario: Error scenario with matrix division
+Given evaluator
+When evaluate [[5]] / [[4]]
+Then should equal One operand should be matrix, another should be a number
+
+Scenario: Get A from cache
+Given evaluator
+When evaluate A^T
+Then should equal [[1.00, 4.00], [2.00, 5.00], [4.00, 6.00]]
+
+Scenario: Input Matrix in invalid format
+Given evaluator
+When evaluate B = [[2.44, 3.444, ], [6.45, 2.5]]
+Then should equal null (FAILED)
+(java.lang.AssertionError: expected:<null> but was:<syntax error occurred>)
+
+Scenario: Input Matrix jagged
+Given evaluator
+When evaluate B = [[2.44, 3.444, 4.6], [6.45, 2.5]]
+Then should equal All rows must have the same length.
+
+Scenario: Invalid Matrix Name
+Given evaluator
+When evaluate Cd = [[6]]
+Then should equal [[6.00]] (FAILED)
+(org.junit.ComparisonFailure: expected:<[[[6.00]]]> but was:<[syntax error occurred]>)
+
+
+
+]]></script>
+</body>
+<!--  SyntaxHighlighter resources:  should be included at end of body -->
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shCore.css"/>
+<link rel="stylesheet" type="text/css" href="./style/sh-3.0.83/shThemeRDark.css"/>
+<script language="javascript" src="./js/sh-3.0.83/shCore.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushBash.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushCss.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushDiff.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushGroovy.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJava.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushJScript.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPlain.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushPython.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushRuby.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushScala.js"></script>
+<script language="javascript" src="./js/sh-3.0.83/shBrushXml.js"></script>
+<script language="javascript" src="./js/shBrushBdd.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;    
+    SyntaxHighlighter.all();
+</script>
+</html>

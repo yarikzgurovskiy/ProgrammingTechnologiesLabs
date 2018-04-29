@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: InitializationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.569 sec <<< FAILURE! - in InitializationTest
+run  Time elapsed: 0.569 sec  <<< ERROR!
+org.jbehave.core.embedder.Embedder$RunningStoriesFailed: Failures in running stories: ReportsCount[stories=7,storiesNotAllowed=0,storiesPending=0,scenarios=32,scenariosFailed=9,scenariosNotAllowed=0,scenariosPending=0,stepsFailed=9]
+	at org.jbehave.core.junit.JUnitStory.run(JUnitStory.java:24)
+
